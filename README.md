@@ -260,5 +260,7 @@ O BrowserSync fará o proxy do Apache e atualizará a página automaticamente se
 ## Autor
 
 Rafael Oliveira Lopes
+
 email: rafaellopes.dev@gmail.com
+
 Site: https://www.rafaellopes.dev
