@@ -1,5 +1,6 @@
-<?php include('header.php'); ?>
 <?php
+include('header.php');
+
 ensure_admin_session();
 
 $success_message = $_SESSION['admin_success'] ?? '';
@@ -120,18 +121,28 @@ if ($orders_query) {
                 <?php } ?>
 
                 <?php foreach ($orders as $order) { ?>
+                  <?php $delete_form_id = 'delete-order-form-' . (int) $order['order_id']; ?>
                   <tr>
                     <td>#<?php echo (int) $order['order_id']; ?></td>
-                    <td>Usuario <?php echo (int) $order['user_id']; ?></td>
+                    <td>Usuário <?php echo (int) $order['user_id']; ?></td>
                     <td><?php echo htmlspecialchars(admin_status_label($order['order_status'])); ?></td>
                     <td>R$ <?php echo number_format((float) $order['order_cost'], 2, ',', '.'); ?></td>
                     <td><?php echo htmlspecialchars($order['shipping_city'] . '/' . $order['shipping_uf']); ?><br><small class="text-muted"><?php echo htmlspecialchars($order['shipping_address']); ?></small></td>
                     <td><?php echo htmlspecialchars(date('d/m/Y H:i', strtotime($order['order_date']))); ?></td>
                     <td class="text-end">
                       <a href="edit_order.php?order_id=<?php echo (int) $order['order_id']; ?>" class="btn btn-sm btn-outline-primary">Editar</a>
-                      <form method="POST" action="index.php?page=<?php echo (int) $page; ?>" class="d-inline">
+                      <form method="POST" action="index.php?page=<?php echo (int) $page; ?>" class="d-inline" id="<?php echo htmlspecialchars($delete_form_id); ?>">
                         <input type="hidden" name="delete_order_id" value="<?php echo (int) $order['order_id']; ?>">
-                        <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('Deseja excluir este pedido?');">Excluir</button>
+                        <button
+                          type="button"
+                          class="btn btn-sm btn-outline-danger"
+                          data-bs-toggle="modal"
+                          data-bs-target="#deleteOrderModal"
+                          data-delete-form-id="<?php echo htmlspecialchars($delete_form_id); ?>"
+                          data-order-id="<?php echo (int) $order['order_id']; ?>"
+                          data-order-customer="Usuário <?php echo (int) $order['user_id']; ?>">
+                          Excluir
+                        </button>
                       </form>
                     </td>
                   </tr>
@@ -162,5 +173,75 @@ if ($orders_query) {
     </main>
   </div>
 </div>
+
+<div class="modal fade premium-modal" id="deleteOrderModal" tabindex="-1" aria-labelledby="deleteOrderModalLabel" aria-describedby="deleteOrderModalDescription" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+          <span class="premium-modal__eyebrow">
+            <i class="fas fa-shield-exclamation" aria-hidden="true"></i>
+            Ação destrutiva
+          </span>
+          <h2 class="premium-modal__title" id="deleteOrderModalLabel">Excluir pedido</h2>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <p class="premium-modal__lead" id="deleteOrderModalDescription">Tem certeza de que deseja excluir este pedido?</p>
+        <p class="premium-modal__meta" id="deleteOrderModalMeta">Esta ação não pode ser desfeita.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger" id="confirmDeleteOrderButton">Excluir pedido</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var deleteOrderModal = document.getElementById('deleteOrderModal');
+    var confirmDeleteOrderButton = document.getElementById('confirmDeleteOrderButton');
+    var modalDescription = document.getElementById('deleteOrderModalDescription');
+    var modalMeta = document.getElementById('deleteOrderModalMeta');
+    var selectedFormId = '';
+
+    if (!deleteOrderModal || !confirmDeleteOrderButton) {
+      return;
+    }
+
+    deleteOrderModal.addEventListener('show.bs.modal', function(event) {
+      var triggerButton = event.relatedTarget;
+
+      if (!triggerButton) {
+        selectedFormId = '';
+        return;
+      }
+
+      var orderId = triggerButton.getAttribute('data-order-id') || '';
+      var orderCustomer = triggerButton.getAttribute('data-order-customer') || '';
+
+      selectedFormId = triggerButton.getAttribute('data-delete-form-id') || '';
+      modalDescription.textContent = 'Tem certeza de que deseja excluir o pedido #' + orderId + '?';
+      modalMeta.innerHTML = orderCustomer !== '' ?
+        '<strong>Cliente:</strong> ' + orderCustomer + '<br>Esta ação não pode ser desfeita e o pedido será removido permanentemente.' :
+        'Esta ação não pode ser desfeita e o pedido será removido permanentemente.';
+    });
+
+    confirmDeleteOrderButton.addEventListener('click', function() {
+      if (!selectedFormId) {
+        return;
+      }
+
+      var targetForm = document.getElementById(selectedFormId);
+
+      if (targetForm) {
+        targetForm.submit();
+      }
+    });
+  });
+</script>
 </body>
+
 </html>

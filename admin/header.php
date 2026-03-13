@@ -200,74 +200,10 @@ if (!function_exists('admin_upload_image')) {
   <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" crossorigin="anonymous">
-  <style>
-    body {
-      background-color: #f5f7fb;
-    }
-
-    .admin-topbar {
-      background: #1f2937;
-      color: #fff;
-      padding: 1rem 0;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
-    }
-
-    .admin-brand {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin: 0;
-    }
-
-    .sidebar {
-      min-height: calc(100vh - 72px);
-      border-right: 1px solid #e5e7eb;
-    }
-
-    .sidebar .nav-link {
-      color: #4b5563;
-      font-weight: 600;
-      border-radius: 0.5rem;
-      margin-bottom: 0.35rem;
-    }
-
-    .sidebar .nav-link.active,
-    .sidebar .nav-link:hover {
-      background: #111827;
-      color: #fff;
-    }
-
-    .content-card {
-      border: 0;
-      border-radius: 1rem;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
-    }
-
-    .login-wrapper {
-      min-height: calc(100vh - 72px);
-    }
-
-    .product-thumb {
-      width: 52px;
-      height: 52px;
-      object-fit: cover;
-      border-radius: 0.75rem;
-      background: #e5e7eb;
-      padding: 0.2rem;
-    }
-
-    .product-gallery-preview {
-      width: 100%;
-      max-width: 160px;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border-radius: 1rem;
-      background: #e5e7eb;
-      padding: 0.25rem;
-    }
-  </style>
+  <link href="../assets/css/admin.css?v=1" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="admin-panel">
   <header class="admin-topbar">
     <div class="container-fluid px-4">
       <div class="d-flex justify-content-between align-items-center">

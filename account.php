@@ -217,9 +217,9 @@ include('layouts/header.php');
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2 mb-4">
           <div>
             <h2 class="h4 mb-1">Meus pedidos</h2>
-            <p class="text-muted mb-0">Acompanhe o historico de compras realizadas na loja.</p>
+            <p class="text-muted mb-0">Acompanhe o historico de compras ja finalizadas na loja.</p>
           </div>
-          <span class="account-orders-count"><?php echo count($orders); ?> pedido(s)</span>
+          <span class="account-orders-count"><?php echo count($orders); ?> pedido(s) realizado(s)</span>
         </div>
 
         <?php if (count($orders) === 0) { ?>
