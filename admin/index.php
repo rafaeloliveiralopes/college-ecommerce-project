@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_order_id'])) {
       $delete_order = mysqli_prepare($conn, 'DELETE FROM orders WHERE order_id = ?');
 
       if (!$delete_payments || !$delete_items || !$delete_order) {
-        throw new Exception('Falha ao preparar a exclusao.');
+        throw new Exception('Falha ao preparar a exclusão.');
       }
 
       mysqli_stmt_bind_param($delete_payments, 'i', $delete_order_id);
@@ -37,9 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_order_id'])) {
       mysqli_stmt_execute($delete_order);
 
       if (mysqli_stmt_affected_rows($delete_order) > 0) {
-        $_SESSION['admin_success'] = 'Pedido excluido com sucesso.';
+        $_SESSION['admin_success'] = 'Pedido excluído com sucesso.';
       } else {
-        $_SESSION['admin_error'] = 'Pedido nao encontrado para exclusao.';
+        $_SESSION['admin_error'] = 'Pedido não encontrado para exclusão.';
       }
 
       mysqli_stmt_close($delete_order);
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_order_id'])) {
       admin_redirect('index.php?page=' . $page);
     } catch (Throwable $exception) {
       mysqli_rollback($conn);
-      $error_message = 'Nao foi possivel excluir o pedido.';
+      $error_message = 'Não foi possível excluir o pedido.';
     }
   }
 }
@@ -84,8 +84,8 @@ if ($orders_query) {
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mb-4">
         <div>
-          <h1 class="h2 mb-1">Pedidos</h1>
-          <p class="text-muted mb-0">Lista paginada com 5 pedidos por pagina.</p>
+          <h1 class="h2 mb-1">Painel de Pedidos</h1>
+          <p class="text-muted mb-0">Lista paginada com 5 pedidos por página.</p>
         </div>
       </div>
 
@@ -109,7 +109,7 @@ if ($orders_query) {
                   <th>Valor</th>
                   <th>Entrega</th>
                   <th>Data</th>
-                  <th class="text-end">Acoes</th>
+                  <th class="text-end">Ações</th>
                 </tr>
               </thead>
               <tbody>
@@ -142,7 +142,7 @@ if ($orders_query) {
         </div>
       </div>
 
-      <nav class="mt-4" aria-label="Paginacao de pedidos">
+      <nav class="mt-4" aria-label="Paginação de pedidos">
         <ul class="pagination">
           <li class="page-item <?php echo $page <= 1 ? 'disabled' : ''; ?>">
             <a class="page-link" href="index.php?page=<?php echo max(1, $page - 1); ?>">Anterior</a>
@@ -155,7 +155,7 @@ if ($orders_query) {
           <?php } ?>
 
           <li class="page-item <?php echo $page >= $total_pages ? 'disabled' : ''; ?>">
-            <a class="page-link" href="index.php?page=<?php echo min($total_pages, $page + 1); ?>">Proxima</a>
+            <a class="page-link" href="index.php?page=<?php echo min($total_pages, $page + 1); ?>">Próxima</a>
           </li>
         </ul>
       </nav>

@@ -2,7 +2,7 @@
 
 Projeto desenvolvido a partir do roteiro de aula prática da disciplina de Desenvolvimento de E-commerce com CMS.
 
-Até o momento, o repositório contempla a interface inicial da loja virtual, a estrutura de banco de dados do sistema e a primeira etapa do dashboard administrativo, seguindo as Aulas Práticas 1, 2 e 3 do roteiro.
+Até o momento, o repositório contempla a interface inicial da loja virtual, a estrutura de banco de dados do sistema e a continuidade do dashboard administrativo, seguindo as Aulas Práticas 1, 2, 3 e 4 do roteiro.
 
 ---
 
@@ -22,7 +22,8 @@ Além disso, a Aula Prática 2 adiciona:
 - script SQL com a criação do banco `project_db`;
 - tabelas `admins`, `products`, `users`, `orders`, `order_items` e `payments`;
 - registro inicial de administrador para acesso futuro ao CMS;
-- arquivo PHP de conexão com o banco em `server/connection.php`.
+- arquivo PHP de conexão com o banco em `server/connection.php`;
+- dados iniciais de teste para usuários, produtos, pedidos, itens de pedido e pagamentos.
 
 Por fim, a Aula Prática 3 adiciona:
 
@@ -31,6 +32,15 @@ Por fim, a Aula Prática 3 adiciona:
 - controle de sessão para proteger as páginas do dashboard;
 - listagem paginada de pedidos com 5 itens por página;
 - edição do status e exclusão de pedidos.
+
+A Aula Prática 4 complementa o CMS com:
+
+- logout administrativo com encerramento da sessão;
+- listagem paginada de produtos com ações de editar dados, editar imagens e excluir;
+- formulário para cadastro de novos produtos com upload da imagem principal para `assets/imgs`;
+- página de edição dos dados do produto;
+- página de edição das quatro imagens do produto;
+- listagem paginada das contas de clientes cadastrados.
 
 ---
 
@@ -62,10 +72,18 @@ Bibliotecas e recursos utilizados:
 │   │   └── style.css
 │   └── imgs/
 ├── admin/
+│   ├── account.php
+│   ├── add_product.php
+│   ├── create_product.php
+│   ├── delete_product.php
+│   ├── edit_images.php
 │   ├── edit_order.php
+│   ├── edit_product.php
 │   ├── header.php
 │   ├── index.php
 │   ├── login.php
+│   ├── logout.php
+│   ├── products.php
 │   └── sidemenu.php
 ├── layouts/
 │   ├── footer.php
@@ -102,7 +120,8 @@ Abra o `phpMyAdmin` no XAMPP e importe o arquivo `project_db.sql`. Isso criará:
 
 - o banco `project_db`;
 - as tabelas principais do e-commerce;
-- o registro inicial da tabela `admins`.
+- o registro inicial da tabela `admins`;
+- produtos e pedidos de exemplo para validar o dashboard admin.
 
 ### 3. Validar a conexão PHP
 
@@ -126,7 +145,17 @@ Credenciais iniciais cadastradas no banco:
 - usuário: `admin` ou `admin@shop.com.br`
 - senha: `123456`
 
-### 5. Iniciar o BrowserSync
+### 5. Recursos do CMS administrativo
+
+Depois de efetuar login no admin, o menu lateral permite acessar:
+
+- `Orders`: pedidos com paginação, edição de status e exclusão;
+- `Products`: produtos com paginação, edição, edição de imagens e exclusão;
+- `Account`: listagem paginada dos usuários cadastrados;
+- `Add New Product`: formulário de criação de produtos com upload da imagem principal;
+- `Logout`: encerramento da sessão administrativa.
+
+### 6. Iniciar o BrowserSync
 
 Na raiz do projeto, execute:
 
@@ -150,7 +179,8 @@ O BrowserSync fará o proxy do Apache e atualizará a página automaticamente se
 - As imagens de destaque do rodapé também são carregadas externamente.
 - O `browser-sync` pode ser instalado automaticamente via `npx` no primeiro uso.
 - As Aulas Práticas 2 e 3 dependem do banco `project_db` estar importado e do Apache/MySQL estarem em execução no XAMPP.
-- A conexão com o banco foi testada com sucesso em ambiente real.
+- As funcionalidades da Aula Prática 4 também dependem do MySQL do XAMPP ativo para validar login, CRUD de produtos e listagem de usuários.
+- O lint automático dos arquivos PHP do admin foi executado com `/opt/lampp/bin/php -l` e não encontrou erros de sintaxe.
 
 ---
 
