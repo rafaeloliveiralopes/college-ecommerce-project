@@ -25,6 +25,7 @@ if (!function_exists('admin_status_label')) {
   function admin_status_label($status)
   {
     $labels = array(
+      'not paid' => 'Pendente de pagamento',
       'on_hold' => 'Em análise',
       'paid' => 'Pago',
       'shipped' => 'Enviado',

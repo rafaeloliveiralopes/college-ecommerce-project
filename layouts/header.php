@@ -140,7 +140,7 @@ $cart_summary = store_cart_summary();
           </li>
           <li class="nav-item icon-item">
             <a
-              class="nav-link <?php echo in_array($current_page, array('login.php', 'register.php', 'account.php'), true) ? 'active' : ''; ?>"
+              class="nav-link <?php echo in_array($current_page, array('login.php', 'register.php', 'account.php', 'order_details.php', 'payments.php'), true) ? 'active' : ''; ?>"
               href="<?php echo $is_user_logged_in ? 'account.php?user_id=' . $current_user_id : 'login.php'; ?>"
               aria-label="<?php echo $is_user_logged_in ? 'Minha conta' : 'Entrar na conta'; ?>"
             >

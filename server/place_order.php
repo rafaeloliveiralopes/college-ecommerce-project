@@ -145,10 +145,10 @@ try {
   mysqli_commit($conn);
 
   $_SESSION['order_id'] = $order_id;
-  $_SESSION['account_success'] = 'Pedido #' . $order_id . ' realizado com sucesso.';
+  $_SESSION['order_details_success'] = 'Pedido #' . $order_id . ' criado com sucesso. Finalize o pagamento para concluir a compra.';
   unset($_SESSION['cart'], $_SESSION['total'], $_SESSION['quantity'], $_SESSION['checkout_form']);
 
-  header('Location: ../account.php?user_id=' . $user_id);
+  header('Location: ../order_details.php?order_id=' . $order_id);
   exit;
 } catch (Exception $exception) {
   mysqli_rollback($conn);

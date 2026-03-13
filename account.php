@@ -13,7 +13,7 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 function format_order_status_label($status)
 {
   $status_map = array(
-    'not paid' => 'Nao pago',
+    'not paid' => 'Pendente de pagamento',
     'on_hold' => 'Em analise',
     'paid' => 'Pago',
     'shipped' => 'Enviado',
@@ -217,7 +217,7 @@ include('layouts/header.php');
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2 mb-4">
           <div>
             <h2 class="h4 mb-1">Meus pedidos</h2>
-            <p class="text-muted mb-0">Acompanhe o historico de compras ja finalizadas na loja.</p>
+            <p class="text-muted mb-0">Acompanhe pedidos pagos, enviados e tambem os que ainda estao pendentes de pagamento.</p>
           </div>
           <span class="account-orders-count"><?php echo count($orders); ?> pedido(s) realizado(s)</span>
         </div>
@@ -236,7 +236,8 @@ include('layouts/header.php');
                   <th>Status</th>
                   <th>Data</th>
                   <th>Valor</th>
-                  <th>Detalhes</th>
+                  <th>Entrega</th>
+                  <th class="text-end">Acoes</th>
                 </tr>
               </thead>
               <tbody>
@@ -252,6 +253,12 @@ include('layouts/header.php');
                     <td><?php echo htmlspecialchars(date('d/m/Y H:i', strtotime((string) $order['order_date']))); ?></td>
                     <td><?php echo htmlspecialchars(store_currency($order['order_cost'])); ?></td>
                     <td><?php echo htmlspecialchars($order['shipping_address'] . ' - ' . $order['shipping_city'] . '/' . $order['shipping_uf']); ?></td>
+                    <td class="text-end">
+                      <form method="POST" action="order_details.php" class="d-inline">
+                        <input type="hidden" name="order_id" value="<?php echo (int) $order['order_id']; ?>">
+                        <button type="submit" class="btn btn-outline-dark rounded-pill px-3">Ver detalhes</button>
+                      </form>
+                    </td>
                   </tr>
                 <?php } ?>
               </tbody>
