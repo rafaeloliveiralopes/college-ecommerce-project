@@ -245,6 +245,11 @@ footer h5 {
 @media (max-width: 991.98px) {
   .navbar {
     top: 0;
+    /* Keep the navbar looking like the desktop header when expanded on mobile
+       (avoids it becoming a full circular sheet when the collapse expands). */
+    border-radius: 1.5rem;
+    width: 100%;
+    margin: 1rem auto 0;
   }
 
   .nav-buttons {
