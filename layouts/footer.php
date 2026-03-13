@@ -8,7 +8,7 @@
         <div class="col-lg-3 col-md-6">
           <h5>Paginas</h5>
           <ul class="list-unstyled footer-links">
-            <li><a href="index.php">Home</a></li>
+            <li><a href="index.php">Inicio</a></li>
             <li><a href="products.php">Produtos</a></li>
             <li><a href="index.php#home">Blog</a></li>
             <li><a href="index.php#footer-contact">Fale Conosco</a></li>
@@ -39,7 +39,7 @@
       </div>
       <div class="row pt-4 mt-4 footer-bottom align-items-center">
         <div class="col-md-8">
-          <p class="mb-0">eCommerce @ 2026 All Right Reserved</p>
+          <p class="mb-0">eCommerce @ 2026 Todos os direitos reservados</p>
         </div>
         <div class="col-md-4 text-md-end social-links">
           <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>

@@ -2,7 +2,7 @@
 
 Projeto desenvolvido a partir do roteiro de aula prática da disciplina de Desenvolvimento de E-commerce com CMS.
 
-Até o momento, o repositório contempla a interface inicial da loja virtual, a estrutura de banco de dados do sistema, a continuidade do dashboard administrativo, a vitrine pública de produtos e a autenticação do cliente, seguindo as Aulas Práticas 1, 2, 3, 4, 5 e 6 do roteiro.
+Até o momento, o repositório contempla a interface inicial da loja virtual, a estrutura de banco de dados do sistema, a continuidade do dashboard administrativo, a vitrine pública de produtos, a autenticação do cliente e o fluxo inicial de carrinho e checkout, seguindo as Aulas Práticas 1, 2, 3, 4, 5, 6 e 7 do roteiro.
 
 ---
 
@@ -12,7 +12,7 @@ Esta aplicação representa a base inicial de um e-commerce com CMS. O projeto f
 
 Atualmente, a página inicial inclui:
 
-- navbar responsiva com logo, links de navegação e ícones de carrinho e usuário;
+- barra de navegacao responsiva com logo, links de navegacao e icones de carrinho e usuario;
 - seção principal com banner e chamada promocional;
 - rodapé com navegação, contato, destaques e formas de pagamento;
 - estilização customizada sobre componentes do Bootstrap.
@@ -48,7 +48,7 @@ A Aula Prática 5 adiciona a vitrine pública da loja com:
 - paginação pública com 8 itens por página;
 - página `single_product.php` para exibição dos detalhes do produto;
 - galeria com troca da imagem em evidência ao clicar nas miniaturas;
-- integração da navegação pública entre home, catálogo e detalhe do produto.
+- integracao da navegacao publica entre inicio, catalogo e detalhe do produto.
 
 A Aula Prática 6 adiciona a área do cliente com:
 
@@ -58,6 +58,15 @@ A Aula Prática 6 adiciona a área do cliente com:
 - formulário de troca de senha dentro da conta do cliente;
 - logout do usuário pela própria página da conta;
 - integração do ícone de usuário do header com o fluxo de login e conta.
+
+A Aula Prática 7 complementa a loja com:
+
+- página `cart.php` para visualização dos produtos adicionados ao carrinho;
+- pagina `checkout.php` com formulario de UF, cidade e endereco;
+- arquivo `server/place_order.php` para salvar pedidos e itens do pedido;
+- lógica de adição, edição e remoção de itens no carrinho usando sessão;
+- exibicao da quantidade total de itens ao lado do icone do carrinho no header;
+- validacao de login na finalizacao da compra e criacao do pedido no banco com transacao.
 
 ---
 
@@ -106,11 +115,14 @@ Bibliotecas e recursos utilizados:
 │   ├── footer.php
 │   └── header.php
 ├── account.php
+├── cart.php
+├── checkout.php
 ├── login.php
 ├── products.php
 ├── register.php
 ├── server/
-│   └── connection.php
+│   ├── connection.php
+│   └── place_order.php
 ├── single_product.php
 ├── project_db.sql
 └── index.php
@@ -171,11 +183,11 @@ Credenciais iniciais cadastradas no banco:
 
 Depois de efetuar login no admin, o menu lateral permite acessar:
 
-- `Orders`: pedidos com paginação, edição de status e exclusão;
-- `Products`: produtos com paginação, edição, edição de imagens e exclusão;
-- `Account`: listagem paginada dos usuários cadastrados;
-- `Add New Product`: formulário de criação de produtos com upload da imagem principal;
-- `Logout`: encerramento da sessão administrativa.
+- `Pedidos`: pedidos com paginacao, edicao de status e exclusao;
+- `Produtos`: produtos com paginacao, edicao, edicao de imagens e exclusao;
+- `Contas`: listagem paginada dos usuarios cadastrados;
+- `Adicionar produto`: formulario de criacao de produtos com upload da imagem principal;
+- `Sair`: encerramento da sessao administrativa.
 
 ### 6. Iniciar o BrowserSync
 
@@ -189,21 +201,8 @@ Depois, acesse no navegador:
 
 ```text
 http://localhost:3000/Project/index.php
+
 ```
-
-Para validar a vitrine pública criada na Aula Prática 5, acesse também:
-
-```text
-http://localhost:3000/Project/products.php
-```
-
-Para validar o fluxo da Aula Prática 6, acesse também:
-
-```text
-http://localhost:3000/Project/register.php
-http://localhost:3000/Project/login.php
-```
-
 O BrowserSync fará o proxy do Apache e atualizará a página automaticamente sempre que houver mudanças nos arquivos monitorados.
 
 ---
@@ -214,10 +213,6 @@ O BrowserSync fará o proxy do Apache e atualizará a página automaticamente se
 - As imagens de destaque do rodapé também são carregadas externamente.
 - O `browser-sync` pode ser instalado automaticamente via `npx` no primeiro uso.
 - As Aulas Práticas 2 e 3 dependem do banco `project_db` estar importado e do Apache/MySQL estarem em execução no XAMPP.
-- As funcionalidades da Aula Prática 4 também dependem do MySQL do XAMPP ativo para validar login, CRUD de produtos e listagem de usuários.
-- As funcionalidades da Aula Prática 5 também dependem do MySQL do XAMPP ativo para listar produtos e abrir a página de detalhe.
-- As funcionalidades da Aula Prática 6 também dependem do MySQL do XAMPP ativo para permitir cadastro, login, logout, troca de senha e visualização dos pedidos do cliente.
-- O lint automático dos arquivos PHP públicos e do admin foi executado com `/opt/lampp/bin/php -l` e não encontrou erros de sintaxe.
 
 ---
 

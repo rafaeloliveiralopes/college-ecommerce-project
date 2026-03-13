@@ -53,7 +53,46 @@ if (!function_exists('store_image_url')) {
   }
 }
 
+if (!function_exists('store_cart_summary')) {
+  function store_cart_summary()
+  {
+    $summary = array(
+      'total' => 0.0,
+      'quantity' => 0,
+    );
+
+    if (!isset($_SESSION['cart']) || !is_array($_SESSION['cart'])) {
+      $_SESSION['total'] = 0;
+      $_SESSION['quantity'] = 0;
+
+      return $summary;
+    }
+
+    foreach ($_SESSION['cart'] as $item) {
+      if (!is_array($item)) {
+        continue;
+      }
+
+      $quantity = max(0, (int) ($item['product_quantity'] ?? 0));
+      $price = (float) ($item['product_price'] ?? 0);
+
+      $summary['quantity'] += $quantity;
+      $summary['total'] += $price * $quantity;
+    }
+
+    $_SESSION['total'] = $summary['total'];
+    $_SESSION['quantity'] = $summary['quantity'];
+
+    if ($summary['quantity'] === 0) {
+      unset($_SESSION['cart']);
+    }
+
+    return $summary;
+  }
+}
+
 $current_page = basename($_SERVER['PHP_SELF'] ?? 'index.php');
+$cart_summary = store_cart_summary();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -78,7 +117,7 @@ $current_page = basename($_SERVER['PHP_SELF'] ?? 'index.php');
       <div class="collapse navbar-collapse" id="mainNavbar">
         <ul class="navbar-nav nav-buttons mb-2 mb-lg-0 align-items-lg-center">
           <li class="nav-item">
-            <a class="nav-link <?php echo $current_page === 'index.php' ? 'active' : ''; ?>" aria-current="<?php echo $current_page === 'index.php' ? 'page' : 'false'; ?>" href="index.php">Home</a>
+            <a class="nav-link <?php echo $current_page === 'index.php' ? 'active' : ''; ?>" aria-current="<?php echo $current_page === 'index.php' ? 'page' : 'false'; ?>" href="index.php">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link <?php echo in_array($current_page, array('products.php', 'single_product.php'), true) ? 'active' : ''; ?>" href="products.php">Produtos</a>
@@ -90,15 +129,20 @@ $current_page = basename($_SERVER['PHP_SELF'] ?? 'index.php');
             <a class="nav-link" href="index.php#footer-contact">Fale Conosco</a>
           </li>
           <li class="nav-item icon-item">
-            <a class="nav-link" href="#" aria-label="Carrinho de compras">
-              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            <a class="nav-link <?php echo in_array($current_page, array('cart.php', 'checkout.php'), true) ? 'active' : ''; ?>" href="cart.php" aria-label="Carrinho de compras">
+              <span class="cart-link-icon">
+                <i class="fas fa-shopping-bag" aria-hidden="true"></i>
+                <?php if ($cart_summary['quantity'] > 0) { ?>
+                  <span class="cart-quantity"><?php echo (int) $cart_summary['quantity']; ?></span>
+                <?php } ?>
+              </span>
             </a>
           </li>
           <li class="nav-item icon-item">
             <a
               class="nav-link <?php echo in_array($current_page, array('login.php', 'register.php', 'account.php'), true) ? 'active' : ''; ?>"
               href="<?php echo $is_user_logged_in ? 'account.php?user_id=' . $current_user_id : 'login.php'; ?>"
-              aria-label="<?php echo $is_user_logged_in ? 'Minha conta' : 'Login do usuario'; ?>"
+              aria-label="<?php echo $is_user_logged_in ? 'Minha conta' : 'Entrar na conta'; ?>"
             >
               <i class="fa fa-user" aria-hidden="true"></i>
             </a>
