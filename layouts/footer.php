@@ -1,4 +1,4 @@
-  <footer class="mt-5 py-5">
+  <footer class="mt-5 py-5" id="footer-contact">
     <div class="container">
       <div class="row gy-4">
         <div class="col-lg-3 col-md-6">
@@ -8,10 +8,10 @@
         <div class="col-lg-3 col-md-6">
           <h5>Paginas</h5>
           <ul class="list-unstyled footer-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Produtos</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Fale Conosco</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="products.php">Produtos</a></li>
+            <li><a href="index.php#home">Blog</a></li>
+            <li><a href="index.php#footer-contact">Fale Conosco</a></li>
           </ul>
         </div>
         <div class="col-lg-3 col-md-6">
