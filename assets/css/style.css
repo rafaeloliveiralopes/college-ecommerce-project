@@ -253,6 +253,143 @@ footer h5 {
   min-height: calc(100vh - 120px);
 }
 
+.auth-section,
+.account-section {
+  min-height: calc(100vh - 120px);
+}
+
+.auth-card,
+.account-shell {
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 2rem;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
+}
+
+.auth-card {
+  max-width: 640px;
+}
+
+.auth-card__content {
+  padding: clamp(2rem, 4vw, 3rem);
+}
+
+.auth-card__subtitle,
+.account-hero__subtitle {
+  color: #52606d;
+}
+
+.auth-card .form-control,
+.account-card .form-control {
+  border-radius: 1rem;
+  min-height: 3rem;
+}
+
+.auth-card__link {
+  margin-top: 1.5rem;
+  color: #52606d;
+}
+
+.auth-card__link a {
+  color: #a04b1f;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-card__link a:hover {
+  color: #d96b3b;
+}
+
+.account-shell {
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.account-hero {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(82, 96, 109, 0.16);
+}
+
+.account-card {
+  background: #fff;
+  border: 1px solid rgba(217, 107, 59, 0.12);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+}
+
+.account-details {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.account-details dt {
+  font-size: 0.82rem;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+  color: #7b8794;
+  margin-bottom: 0.35rem;
+}
+
+.account-details dd {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #13212c;
+}
+
+.account-orders-count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  background: #f4e5db;
+  color: #a04b1f;
+  font-weight: 700;
+}
+
+.account-orders-table th {
+  color: #52606d;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  border-bottom-width: 1px;
+}
+
+.account-orders-table td {
+  vertical-align: middle;
+}
+
+.order-status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04rem;
+  text-transform: uppercase;
+}
+
+.order-status-paid,
+.order-status-delivered {
+  background: rgba(20, 131, 92, 0.14);
+  color: #0f7a56;
+}
+
+.order-status-on_hold,
+.order-status-not-paid {
+  background: rgba(224, 170, 0, 0.16);
+  color: #8a6100;
+}
+
+.order-status-shipped {
+  background: rgba(13, 110, 253, 0.14);
+  color: #0b5ed7;
+}
+
 .empty-state-card,
 .detail-shell {
   background: rgba(255, 255, 255, 0.92);
@@ -544,5 +681,9 @@ footer h5 {
 
   .detail-form .form-control {
     max-width: 100%;
+  }
+
+  .account-card {
+    padding: 1.2rem;
   }
 }

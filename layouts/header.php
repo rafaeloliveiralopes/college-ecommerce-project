@@ -3,6 +3,9 @@ if (session_status() === PHP_SESSION_NONE) {
   session_start();
 }
 
+$is_user_logged_in = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true;
+$current_user_id = (int) ($_SESSION['user_id'] ?? 0);
+
 if (!function_exists('store_currency')) {
   function store_currency($value)
   {
@@ -61,7 +64,7 @@ $current_page = basename($_SERVER['PHP_SELF'] ?? 'index.php');
   <title>eCommerce CMS</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
-  <link href="assets/css/style.css?v=8" rel="stylesheet">
+  <link href="assets/css/style.css?v=9" rel="stylesheet">
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
@@ -92,7 +95,11 @@ $current_page = basename($_SERVER['PHP_SELF'] ?? 'index.php');
             </a>
           </li>
           <li class="nav-item icon-item">
-            <a class="nav-link" href="#" aria-label="Conta do usuario">
+            <a
+              class="nav-link <?php echo in_array($current_page, array('login.php', 'register.php', 'account.php'), true) ? 'active' : ''; ?>"
+              href="<?php echo $is_user_logged_in ? 'account.php?user_id=' . $current_user_id : 'login.php'; ?>"
+              aria-label="<?php echo $is_user_logged_in ? 'Minha conta' : 'Login do usuario'; ?>"
+            >
               <i class="fa fa-user" aria-hidden="true"></i>
             </a>
           </li>
