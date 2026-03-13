@@ -4,31 +4,37 @@
       <li class="nav-item">
         <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) === 'index.php' ? 'active' : ''; ?>" aria-current="page" href="index.php">
           <i class="fas fa-home me-2"></i>
-          Dashboard
+          Painel
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) === 'index.php' ? 'active' : ''; ?>" href="index.php">
           <i class="fas fa-file-alt me-2"></i>
-          Orders
+          Pedidos
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) === 'products.php' || basename($_SERVER['PHP_SELF']) === 'edit_product.php' || basename($_SERVER['PHP_SELF']) === 'edit_images.php' ? 'active' : ''; ?>" href="products.php">
           <i class="fas fa-shopping-cart me-2"></i>
-          Products
+          Produtos
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) === 'account.php' ? 'active' : ''; ?>" href="account.php">
           <i class="fas fa-user-circle me-2"></i>
-          Account
+          Contas
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link <?php echo basename($_SERVER['PHP_SELF']) === 'add_product.php' || basename($_SERVER['PHP_SELF']) === 'create_product.php' ? 'active' : ''; ?>" href="add_product.php">
           <i class="fas fa-plus-circle me-2"></i>
-          Add New Product
+          Adicionar Produto
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="logout.php">
+          <i class="fas fa-sign-out-alt me-2"></i>
+          Sair
         </a>
       </li>
     </ul>

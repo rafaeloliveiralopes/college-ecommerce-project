@@ -3,7 +3,7 @@
 ensure_admin_session();
 
 $allowed_status = array(
-  'on_hold' => 'Em analise',
+  'on_hold' => 'Em análise',
   'paid' => 'Pago',
   'shipped' => 'Enviado',
   'delivered' => 'Entregue',
@@ -16,7 +16,7 @@ $order = null;
 unset($_SESSION['admin_success']);
 
 if ($order_id <= 0) {
-  $_SESSION['admin_error'] = 'Pedido invalido.';
+  $_SESSION['admin_error'] = 'Pedido inválido.';
   admin_redirect('index.php');
 }
 
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order_status'])) {
   $order_status = $_POST['order_status'];
 
   if (!array_key_exists($order_status, $allowed_status)) {
-    $error_message = 'Selecione um status valido.';
+      $error_message = 'Selecione um status válido.';
   } else {
     $update_stmt = mysqli_prepare($conn, 'UPDATE orders SET order_status = ? WHERE order_id = ?');
 
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order_status'])) {
       $_SESSION['admin_success'] = 'Status do pedido atualizado com sucesso.';
       admin_redirect('edit_order.php?order_id=' . $order_id);
     } else {
-      $error_message = 'Nao foi possivel atualizar o pedido.';
+      $error_message = 'Não foi possível atualizar o pedido.';
     }
   }
 }
@@ -51,7 +51,7 @@ if ($order_stmt) {
 }
 
 if (!$order) {
-  $_SESSION['admin_error'] = 'Pedido nao encontrado.';
+  $_SESSION['admin_error'] = 'Pedido não encontrado.';
   admin_redirect('index.php');
 }
 ?>
@@ -63,7 +63,7 @@ if (!$order) {
       <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
           <h1 class="h2 mb-1">Editar Pedido #<?php echo (int) $order['order_id']; ?></h1>
-          <p class="text-muted mb-0">Edicao apenas do status, conforme o roteiro.</p>
+          <p class="text-muted mb-0">Edição apenas do status, conforme o roteiro.</p>
         </div>
         <a href="index.php" class="btn btn-outline-secondary">Voltar</a>
       </div>
@@ -109,7 +109,7 @@ if (!$order) {
                 <?php } ?>
               </select>
             </div>
-            <button type="submit" class="btn btn-dark">Salvar alteracoes</button>
+            <button type="submit" class="btn btn-dark">Salvar alterações</button>
           </form>
         </div>
       </div>
