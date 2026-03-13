@@ -57,6 +57,7 @@ body > * {
 .navbar {
   width: 99%;
   margin: 1rem auto 0;
+  padding-block: 0.65rem;
   padding-inline: 0;
   position: sticky;
   top: 1rem;
@@ -85,7 +86,7 @@ body > * {
 }
 
 .logo {
-  width: clamp(3.5rem, 3vw, 4.75rem);
+  width: clamp(3rem, 2.8vw, 4rem);
   height: auto;
 }
 
@@ -97,6 +98,7 @@ body > * {
 .nav-link {
   color: #1f2933 !important;
   font-weight: 600;
+  padding-block: 0.35rem;
   transition: color 0.2s ease;
 }
 
