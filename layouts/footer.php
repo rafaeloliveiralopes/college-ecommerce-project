@@ -23,12 +23,18 @@
           </ul>
         </div>
         <div class="col-lg-3 col-md-6">
-          <h5>Destaques</h5>
-          <div class="product-thumbs">
-            <img src="assets/imgs/product.svg" alt="Produto destaque 1">
-            <img src="assets/imgs/product.svg" alt="Produto destaque 2">
-            <img src="assets/imgs/product.svg" alt="Produto destaque 3">
+          <h5>Instagram</h5>
+          <div class="product-thumbs instagram-thumbs">
+            <img src="assets/imgs/insta-1.svg" alt="Instagram item 1">
+            <img src="assets/imgs/insta-2.svg" alt="Instagram item 2">
+            <img src="assets/imgs/insta-3.svg" alt="Instagram item 3">
+            <img src="assets/imgs/insta-4.svg" alt="Instagram item 4">
           </div>
+        </div>
+      </div>
+      <div class="row pt-4">
+        <div class="col-12 text-center">
+          <img src="assets/imgs/payment-methods.svg" alt="Formas de pagamento" class="payment-methods">
         </div>
       </div>
       <div class="row pt-4 mt-4 footer-bottom align-items-center">
@@ -45,5 +51,6 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5z+moO1p5YkPENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-</body>
-</html>
+  </body>
+
+  </html>
