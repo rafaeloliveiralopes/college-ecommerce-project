@@ -10,6 +10,21 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
   exit;
 }
 
+function format_order_status_label($status)
+{
+  $status_map = array(
+    'not paid' => 'Nao pago',
+    'on_hold' => 'Em analise',
+    'paid' => 'Pago',
+    'shipped' => 'Enviado',
+    'delivered' => 'Entregue',
+  );
+
+  $status = (string) $status;
+
+  return $status_map[$status] ?? $status;
+}
+
 $session_user_id = (int) ($_SESSION['user_id'] ?? 0);
 $requested_user_id = (int) ($_GET['user_id'] ?? 0);
 
@@ -231,7 +246,7 @@ include('layouts/header.php');
                     <td>#<?php echo (int) $order['order_id']; ?></td>
                     <td>
                       <span class="order-status-badge order-status-<?php echo htmlspecialchars($status_class); ?>">
-                        <?php echo htmlspecialchars($order['order_status']); ?>
+                        <?php echo htmlspecialchars(format_order_status_label($order['order_status'])); ?>
                       </span>
                     </td>
                     <td><?php echo htmlspecialchars(date('d/m/Y H:i', strtotime((string) $order['order_date']))); ?></td>

@@ -1,6 +1,38 @@
 <?php
 include('server/connection.php');
 
+if (session_status() === PHP_SESSION_NONE) {
+  session_start();
+}
+
+function sync_single_product_cart_summary()
+{
+  $total_price = 0.0;
+  $total_quantity = 0;
+
+  if (!isset($_SESSION['cart']) || !is_array($_SESSION['cart'])) {
+    $_SESSION['total'] = 0;
+    $_SESSION['quantity'] = 0;
+
+    return;
+  }
+
+  foreach ($_SESSION['cart'] as $item) {
+    if (!is_array($item)) {
+      continue;
+    }
+
+    $quantity = max(0, (int) ($item['product_quantity'] ?? 0));
+    $price = (float) ($item['product_price'] ?? 0);
+
+    $total_quantity += $quantity;
+    $total_price += $price * $quantity;
+  }
+
+  $_SESSION['total'] = $total_price;
+  $_SESSION['quantity'] = $total_quantity;
+}
+
 $product_id = (int) ($_GET['product_id'] ?? 0);
 $product = null;
 
@@ -14,6 +46,37 @@ if ($product_id > 0) {
     $product = mysqli_fetch_assoc($product_result) ?: null;
     mysqli_stmt_close($product_query);
   }
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'add_to_cart') {
+  $product_quantity = filter_var($_POST['product_quantity'] ?? 0, FILTER_VALIDATE_INT, array('options' => array('min_range' => 1)));
+
+  if (!$product) {
+    $_SESSION['cart_error'] = 'Nao foi possivel localizar o produto para adicionar ao carrinho.';
+  } elseif ($product_quantity === false) {
+    $_SESSION['cart_error'] = 'Informe uma quantidade valida para adicionar ao carrinho.';
+  } else {
+    if (!isset($_SESSION['cart']) || !is_array($_SESSION['cart'])) {
+      $_SESSION['cart'] = array();
+    }
+
+    $existing_quantity = (int) ($_SESSION['cart'][$product['product_id']]['product_quantity'] ?? 0);
+    $new_quantity = $existing_quantity + (int) $product_quantity;
+
+    $_SESSION['cart'][$product['product_id']] = array(
+      'product_id' => (int) $product['product_id'],
+      'product_name' => $product['product_name'],
+      'product_price' => (float) $product['product_price'],
+      'product_image' => $product['product_image'],
+      'product_quantity' => $new_quantity,
+    );
+
+    sync_single_product_cart_summary();
+    $_SESSION['cart_success'] = 'Produto adicionado ao carrinho com sucesso.';
+  }
+
+  header('Location: cart.php');
+  exit;
 }
 
 include('layouts/header.php');
@@ -84,11 +147,12 @@ if ($product) {
               </ul>
               <p class="detail-description"><?php echo htmlspecialchars($product['product_description']); ?></p>
 
-              <form class="detail-form" action="#" method="post">
+              <form class="detail-form" action="single_product.php?product_id=<?php echo (int) $product['product_id']; ?>" method="POST">
+                <input type="hidden" name="action" value="add_to_cart">
                 <label for="quantity" class="form-label">Quantidade</label>
                 <div class="detail-form__row">
-                  <input type="number" min="1" value="1" id="quantity" name="quantity" class="form-control">
-                  <button type="button" class="btn btn-dark rounded-pill px-4">Adicionar ao carrinho</button>
+                  <input type="number" min="1" value="1" id="quantity" name="product_quantity" class="form-control">
+                  <button type="submit" class="btn btn-dark rounded-pill px-4">Adicionar ao carrinho</button>
                 </div>
               </form>
             </div>
