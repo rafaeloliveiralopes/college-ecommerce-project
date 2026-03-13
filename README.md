@@ -2,7 +2,7 @@
 
 Projeto desenvolvido a partir do roteiro de aula prática da disciplina de Desenvolvimento de E-commerce com CMS.
 
-Até o momento, o repositório contempla a interface inicial da loja virtual e a estrutura de banco de dados do sistema, seguindo as Aulas Práticas 1 e 2 do roteiro.
+Até o momento, o repositório contempla a interface inicial da loja virtual, a estrutura de banco de dados do sistema e a primeira etapa do dashboard administrativo, seguindo as Aulas Práticas 1, 2 e 3 do roteiro.
 
 ---
 
@@ -23,6 +23,14 @@ Além disso, a Aula Prática 2 adiciona:
 - tabelas `admins`, `products`, `users`, `orders`, `order_items` e `payments`;
 - registro inicial de administrador para acesso futuro ao CMS;
 - arquivo PHP de conexão com o banco em `server/connection.php`.
+
+Por fim, a Aula Prática 3 adiciona:
+
+- subprojeto `admin/` para o dashboard administrativo;
+- tela de login com autenticação pela tabela `admins`;
+- controle de sessão para proteger as páginas do dashboard;
+- listagem paginada de pedidos com 5 itens por página;
+- edição do status e exclusão de pedidos.
 
 ---
 
@@ -53,6 +61,12 @@ Bibliotecas e recursos utilizados:
 │   ├── css/
 │   │   └── style.css
 │   └── imgs/
+├── admin/
+│   ├── edit_order.php
+│   ├── header.php
+│   ├── index.php
+│   ├── login.php
+│   └── sidemenu.php
 ├── layouts/
 │   ├── footer.php
 │   └── header.php
@@ -99,7 +113,20 @@ O arquivo `server/connection.php` já está configurado para conectar em:
 - senha: vazia
 - banco: `project_db`
 
-### 4. Iniciar o BrowserSync
+### 4. Acessar o dashboard admin
+
+Depois de importar o banco, você pode acessar o dashboard em:
+
+```text
+http://localhost/Project/admin/login.php
+```
+
+Credenciais iniciais cadastradas no banco:
+
+- usuário: `admin` ou `admin@shop.com.br`
+- senha: `123456`
+
+### 5. Iniciar o BrowserSync
 
 Na raiz do projeto, execute:
 
@@ -122,7 +149,7 @@ O BrowserSync fará o proxy do Apache e atualizará a página automaticamente se
 - Como Bootstrap, Font Awesome e Google Fonts são carregados por CDN, a página precisa de internet para exibir todos os estilos e ícones corretamente.
 - As imagens de destaque do rodapé também são carregadas externamente.
 - O `browser-sync` pode ser instalado automaticamente via `npx` no primeiro uso.
-- A Aula Prática 2 foi validada localmente com XAMPP, Apache e MySQL em execução.
+- As Aulas Práticas 2 e 3 dependem do banco `project_db` estar importado e do Apache/MySQL estarem em execução no XAMPP.
 - A conexão com o banco foi testada com sucesso em ambiente real.
 
 ---
