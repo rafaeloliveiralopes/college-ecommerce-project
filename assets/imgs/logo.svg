@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 120" role="img" aria-labelledby="title desc">
+  <title id="title">Logo Shopping</title>
+  <desc id="desc">Logo azul com carrinho de compras e texto shopping</desc>
+  <g fill="none" stroke="#2f78a8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M18 26h15l11 34h49l10-25H49" stroke-width="6"/>
+    <path d="M53 22h55" stroke-width="6"/>
+    <path d="M49 34l-13-16" stroke-width="6"/>
+    <path d="M61 40h10" stroke-width="4"/>
+    <path d="M78 40h10" stroke-width="4"/>
+    <path d="M47 50c7-6 15-10 24-10 8 0 14 3 21 10" stroke-width="4"/>
+    <circle cx="58" cy="76" r="5" fill="#2f78a8" stroke-width="2"/>
+    <circle cx="94" cy="76" r="5" fill="#2f78a8" stroke-width="2"/>
+    <path d="M10 18h20" stroke-width="6"/>
+    <path d="M12 28h16" stroke-width="6"/>
+    <path d="M14 38h12" stroke-width="6"/>
+  </g>
+  <text x="70" y="103" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#2f78a8">SHOPPING</text>
+</svg>

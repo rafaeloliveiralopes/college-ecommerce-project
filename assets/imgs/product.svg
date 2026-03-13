@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">Produto destaque</title>
+  <desc id="desc">Miniatura ilustrativa de produto</desc>
+  <rect width="120" height="120" rx="18" fill="#f8f5f0"/>
+  <rect x="28" y="24" width="64" height="72" rx="12" fill="#d96b3b"/>
+  <path d="M38 42h44" stroke="#f8f5f0" stroke-width="6" stroke-linecap="round"/>
+  <path d="M38 56h44" stroke="#f8f5f0" stroke-width="6" stroke-linecap="round"/>
+  <path d="M38 70h28" stroke="#f8f5f0" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="60" cy="98" r="8" fill="#13212c"/>
+</svg>

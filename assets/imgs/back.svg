@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Banner de moda</title>
+  <desc id="desc">Ilustracao para o banner principal da loja</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f1b17b"/>
+      <stop offset="50%" stop-color="#d96b3b"/>
+      <stop offset="100%" stop-color="#13212c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <circle cx="1220" cy="240" r="180" fill="rgba(255,255,255,0.12)"/>
+  <circle cx="1320" cy="780" r="240" fill="rgba(255,255,255,0.10)"/>
+  <rect x="110" y="170" width="320" height="620" rx="38" fill="rgba(255,255,255,0.12)"/>
+  <rect x="170" y="250" width="230" height="470" rx="34" fill="rgba(255,255,255,0.14)"/>
+  <circle cx="245" cy="370" r="66" fill="#d5d9dd"/>
+  <path d="M100 760c36-146 188-220 316-220s238 74 274 220" fill="none" stroke="#d5d9dd" stroke-width="30" stroke-linecap="round"/>
+  <path d="M920 270c50-54 146-86 220-58 60 22 109 78 120 145" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="14" stroke-linecap="round"/>
+  <path d="M890 706c80 58 208 70 312 24 57-25 104-67 135-118" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="16" stroke-linecap="round"/>
+</svg>
