@@ -275,7 +275,9 @@ footer h5 {
 .catalog-section,
 .product-detail-section,
 .cart-section,
-.checkout-section {
+.checkout-section,
+.payment-section,
+.order-details-section {
   min-height: calc(100vh - 120px);
 }
 
@@ -419,7 +421,9 @@ footer h5 {
 .empty-state-card,
 .detail-shell,
 .cart-shell,
-.checkout-shell {
+.checkout-shell,
+.payment-shell,
+.order-details-shell {
   background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 2rem;
@@ -539,7 +543,9 @@ footer h5 {
 }
 
 .cart-shell,
-.checkout-shell {
+.checkout-shell,
+.payment-shell,
+.order-details-shell {
   padding: clamp(1.4rem, 3vw, 2rem);
   box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
 }
@@ -575,7 +581,8 @@ footer h5 {
 }
 
 .cart-summary-card,
-.checkout-card {
+.checkout-card,
+.payment-card {
   background: #fff;
   border: 1px solid rgba(217, 107, 59, 0.12);
   border-radius: 1.5rem;
@@ -613,6 +620,42 @@ footer h5 {
 .checkout-card__note {
   color: #52606d;
   line-height: 1.7;
+}
+
+.payment-summary-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.payment-summary-list div {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.payment-summary-list dt {
+  margin: 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+  color: #7b8794;
+}
+
+.payment-summary-list dd {
+  margin: 0;
+  color: #13212c;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.paypal-card {
+  border: 1px dashed rgba(217, 107, 59, 0.28);
+  border-radius: 1.5rem;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  background: linear-gradient(180deg, rgba(255, 247, 240, 0.72), rgba(255, 255, 255, 0.95));
+}
+
+#paypal-button-container {
+  max-width: 420px;
 }
 
 .product-viewer__hero {

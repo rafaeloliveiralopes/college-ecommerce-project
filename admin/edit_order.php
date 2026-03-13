@@ -3,6 +3,7 @@
 ensure_admin_session();
 
 $allowed_status = array(
+  'not paid' => 'Pendente de pagamento',
   'on_hold' => 'Em análise',
   'paid' => 'Pago',
   'shipped' => 'Enviado',
