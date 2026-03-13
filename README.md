@@ -2,7 +2,7 @@
 
 Projeto desenvolvido a partir do roteiro de aula prática da disciplina de Desenvolvimento de E-commerce com CMS.
 
-Até o momento, o repositório contempla a interface inicial da loja virtual, a estrutura de banco de dados do sistema e a continuidade do dashboard administrativo, seguindo as Aulas Práticas 1, 2, 3 e 4 do roteiro.
+Até o momento, o repositório contempla a interface inicial da loja virtual, a estrutura de banco de dados do sistema, a continuidade do dashboard administrativo e a vitrine pública de produtos, seguindo as Aulas Práticas 1, 2, 3, 4 e 5 do roteiro.
 
 ---
 
@@ -41,6 +41,14 @@ A Aula Prática 4 complementa o CMS com:
 - página de edição dos dados do produto;
 - página de edição das quatro imagens do produto;
 - listagem paginada das contas de clientes cadastrados.
+
+A Aula Prática 5 adiciona a vitrine pública da loja com:
+
+- página `products.php` para listagem dos produtos cadastrados no banco;
+- paginação pública com 8 itens por página;
+- página `single_product.php` para exibição dos detalhes do produto;
+- galeria com troca da imagem em evidência ao clicar nas miniaturas;
+- integração da navegação pública entre home, catálogo e detalhe do produto.
 
 ---
 
@@ -88,8 +96,10 @@ Bibliotecas e recursos utilizados:
 ├── layouts/
 │   ├── footer.php
 │   └── header.php
+├── products.php
 ├── server/
 │   └── connection.php
+├── single_product.php
 ├── project_db.sql
 └── index.php
 ```
@@ -169,6 +179,12 @@ Depois, acesse no navegador:
 http://localhost:3000/Project/index.php
 ```
 
+Para validar a vitrine pública criada na Aula Prática 5, acesse também:
+
+```text
+http://localhost:3000/Project/products.php
+```
+
 O BrowserSync fará o proxy do Apache e atualizará a página automaticamente sempre que houver mudanças nos arquivos monitorados.
 
 ---
@@ -180,7 +196,8 @@ O BrowserSync fará o proxy do Apache e atualizará a página automaticamente se
 - O `browser-sync` pode ser instalado automaticamente via `npx` no primeiro uso.
 - As Aulas Práticas 2 e 3 dependem do banco `project_db` estar importado e do Apache/MySQL estarem em execução no XAMPP.
 - As funcionalidades da Aula Prática 4 também dependem do MySQL do XAMPP ativo para validar login, CRUD de produtos e listagem de usuários.
-- O lint automático dos arquivos PHP do admin foi executado com `/opt/lampp/bin/php -l` e não encontrou erros de sintaxe.
+- As funcionalidades da Aula Prática 5 também dependem do MySQL do XAMPP ativo para listar produtos e abrir a página de detalhe.
+- O lint automático dos arquivos PHP públicos e do admin foi executado com `/opt/lampp/bin/php -l` e não encontrou erros de sintaxe.
 
 ---
 
