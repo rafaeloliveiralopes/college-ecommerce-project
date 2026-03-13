@@ -212,12 +212,15 @@ footer h5 {
 
 .instagram-thumbs {
   flex-wrap: wrap;
-  max-width: 215px;
+  max-width: 190px;
 }
 
 .instagram-thumbs img {
-  width: 46px;
-  height: 46px;
+  width: 84px;
+  height: 84px;
+  padding: 0;
+  border: 3px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .payment-methods {

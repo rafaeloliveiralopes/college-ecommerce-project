@@ -23,12 +23,12 @@
           </ul>
         </div>
         <div class="col-lg-3 col-md-6">
-          <h5>Instagram</h5>
+          <h5>Destaques</h5>
           <div class="product-thumbs instagram-thumbs">
-            <img src="assets/imgs/insta-1.svg" alt="Instagram item 1">
-            <img src="assets/imgs/insta-2.svg" alt="Instagram item 2">
-            <img src="assets/imgs/insta-3.svg" alt="Instagram item 3">
-            <img src="assets/imgs/insta-4.svg" alt="Instagram item 4">
+            <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=300&q=80" alt="Camiseta branca basica em foto de catalogo">
+            <img src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?auto=format&fit=crop&w=300&q=80" alt="Camiseta preta em composicao de moda casual">
+            <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&w=300&q=80" alt="Camiseta creme com estampa azul">
+            <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573?auto=format&fit=crop&w=300&q=80" alt="Camiseta branca com estampa colorida">
           </div>
         </div>
       </div>
@@ -39,7 +39,7 @@
       </div>
       <div class="row pt-4 mt-4 footer-bottom align-items-center">
         <div class="col-md-8">
-          <p class="mb-0">eCommerce @ 2022 All Right Reserved</p>
+          <p class="mb-0">eCommerce @ 2026 All Right Reserved</p>
         </div>
         <div class="col-md-4 text-md-end social-links">
           <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
