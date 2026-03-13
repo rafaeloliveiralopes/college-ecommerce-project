@@ -22,7 +22,8 @@ Além disso, a Aula Prática 2 adiciona:
 - script SQL com a criação do banco `project_db`;
 - tabelas `admins`, `products`, `users`, `orders`, `order_items` e `payments`;
 - registro inicial de administrador para acesso futuro ao CMS;
-- arquivo PHP de conexão com o banco em `server/connection.php`.
+- arquivo PHP de conexão com o banco em `server/connection.php`;
+- dados iniciais de teste para usuários, produtos, pedidos, itens de pedido e pagamentos.
 
 Por fim, a Aula Prática 3 adiciona:
 
@@ -102,7 +103,8 @@ Abra o `phpMyAdmin` no XAMPP e importe o arquivo `project_db.sql`. Isso criará:
 
 - o banco `project_db`;
 - as tabelas principais do e-commerce;
-- o registro inicial da tabela `admins`.
+- o registro inicial da tabela `admins`;
+- produtos e pedidos de exemplo para validar o dashboard admin.
 
 ### 3. Validar a conexão PHP
 
