@@ -4,6 +4,11 @@ Aplicação web de e-commerce desenvolvida em PHP com painel administrativo, aut
 
 O projeto consolida as entregas previstas no roteiro acadêmico descrito em `rap.pdf`, cobrindo as atividades práticas 1 a 8 em uma única base de código.
 
+## Demo Online
+
+- Loja publicada: `http://shopcmsrafaellopes.infinityfree.me`
+- Painel administrativo: `http://shopcmsrafaellopes.infinityfree.me/admin/login.php`
+
 ## Visão Geral
 
 Este repositório entrega uma loja virtual com duas frentes principais:
@@ -102,10 +107,25 @@ Painel administrativo:
 http://localhost/<nome-do-projeto>/admin/login.php
 ```
 
+## Publicação no InfinityFree
+
+Deploy publicado em:
+
+```text
+http://shopcmsrafaellopes.infinityfree.me
+```
+
+Login do painel administrativo:
+
+```text
+http://shopcmsrafaellopes.infinityfree.me/admin/login.php
+```
+
 ## Credenciais de Demonstração
 
-As credenciais abaixo existem apenas para ambiente local com o banco importado.
+As credenciais abaixo existem para o banco importado no ambiente local e também para a publicação demonstrativa no InfinityFree.
 
+```text
 Administrador:
 
 - usuário: `admin`
@@ -116,6 +136,7 @@ Cliente de exemplo:
 
 - e-mail: `mariana@example.com`
 - senha: `123456`
+```
 
 ## Observações
 
